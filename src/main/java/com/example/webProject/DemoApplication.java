@@ -19,9 +19,9 @@ public class DemoApplication {
       return String.format("Hello %s!", name);
     }
 
-	@RequestMapping("/")
-    String hello() {
-        return "Hello World, Spring Boot!";
-    }
+//	@RequestMapping("/")
+//    String hello() {
+//        return "Hello World, Spring Boot!";
+//    }
 
 }
