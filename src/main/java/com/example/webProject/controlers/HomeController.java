@@ -23,4 +23,10 @@ public class HomeController {
         return post;
     }
 
+    @GetMapping(value = "/api/post/latest", produces = "application/json")
+    public Post[] homeLatest(){
+        Logger.getLogger(HomeController.class.getName()).log(Level.INFO,"post 1 get");
+        return postService.getAll().toArray(new Post[0]);
+    }
+
 }

@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 @Entity
 public class Post {
     private String title;
+
+    private String imageLink;
     private LocalDateTime createdAt;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -43,6 +45,14 @@ public class Post {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public String getImageLink() {
+        return imageLink;
+    }
+
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
     }
 
 }
