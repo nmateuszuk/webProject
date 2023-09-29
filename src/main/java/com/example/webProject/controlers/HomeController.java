@@ -4,8 +4,7 @@ import com.example.webProject.models.Post;
 import com.example.webProject.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.logging.Level;
@@ -27,6 +26,12 @@ public class HomeController {
     public Post[] homeLatest(){
         Logger.getLogger(HomeController.class.getName()).log(Level.INFO,"post 1 get");
         return postService.getAll().toArray(new Post[0]);
+    }
+
+    @PostMapping(value = "/api/post/write", produces = "application/json")
+    public void writePost(@RequestBody Post post){
+        Logger.getLogger(HomeController.class.getName()).log(Level.INFO, "got post to save " + post.getTitle());
+        postService.save(post);
     }
 
 }

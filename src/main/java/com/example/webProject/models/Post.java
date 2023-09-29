@@ -1,7 +1,10 @@
 package com.example.webProject.models;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+
+//@JsonIgnoreProperties(ignoreUnknown = true)
 @Entity
 public class Post {
     private String title;
