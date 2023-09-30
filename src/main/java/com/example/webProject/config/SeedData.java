@@ -1,5 +1,6 @@
 package com.example.webProject.config;
 
+import com.example.webProject.models.Comment;
 import com.example.webProject.models.Post;
 import com.example.webProject.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,9 +30,14 @@ public class SeedData implements CommandLineRunner {
             post2.setBody("This is post 2 <3");
             post2.setImageLink("https://images.pexels.com/photos/6711867/pexels-photo-6711867.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
 
-            postService.save(post1);
-            postService.save(post2);
+            Post post1a =postService.save(post1);
+            Post post2a= postService.save(post2);
 
+            Comment comment1= new Comment();
+            comment1.setCommentBody("comments are working now!");
+            comment1.setUserName("matka anieli");
+            comment1.setPost(post1a);
+            postService.save(comment1);
         }
 
     }
