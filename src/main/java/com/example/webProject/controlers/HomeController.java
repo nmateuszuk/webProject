@@ -15,10 +15,10 @@ public class HomeController {
     @Autowired
     private PostService postService;
 
-    @GetMapping(value = "/api/post", produces = "application/json")
-    public Post home(){
-        Logger.getLogger(HomeController.class.getName()).log(Level.INFO,"post 1 get");
-        Post post= postService.getById(1L).get();
+    @GetMapping(value = "/api/post/{id}", produces = "application/json")
+    public Post home(@PathVariable("id") Long id){
+        Logger.getLogger(HomeController.class.getName()).log(Level.INFO,"post " +  id + " got");
+        Post post= postService.getById(id).get();
         return post;
     }
 
